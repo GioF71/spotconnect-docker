@@ -68,6 +68,7 @@ services:
 
 ### AirPlay Mode
 
+```
 ---
 version: "3"
 
