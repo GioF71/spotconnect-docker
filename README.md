@@ -1,7 +1,7 @@
 # spotconnect-docker
 
 A docker image for [SpotConnect](https://github.com/philippe44/SpotConnect).  
-The image includes version [0.5.2](https://github.com/philippe44/SpotConnect/releases/tag/0.5.2).  
+The image includes version [0.6.0](https://github.com/philippe44/SpotConnect/releases/tag/0.6.0).  
 
 ## References
 
@@ -93,4 +93,5 @@ services:
 
 DATE|DESCRIPTION
 :---|:---
+2023-11-28|Bump to version [0.6.0](https://github.com/philippe44/SpotConnect/releases/tag/0.6.0)
 2023-11-23|First working release
