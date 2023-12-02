@@ -2,7 +2,7 @@
 
 A docker image for [SpotConnect](https://github.com/philippe44/SpotConnect).  
 This repository replaces the old [airplay](https://github.com/GioF71/spotconnect-airplay-docker) and [upnp](https://github.com/GioF71/spotconnect-upnp-docker) separate variants, which will not be updated.  
-The image includes version [0.6.0](https://github.com/philippe44/SpotConnect/releases/tag/0.6.0).  
+The image includes version [0.6.1](https://github.com/philippe44/SpotConnect/releases/tag/0.6.1).  
 
 ## References
 
@@ -94,5 +94,6 @@ services:
 
 DATE|DESCRIPTION
 :---|:---
+2023-12-02|Bump to version [0.6.1](https://github.com/philippe44/SpotConnect/releases/tag/0.6.1)
 2023-11-28|Bump to version [0.6.0](https://github.com/philippe44/SpotConnect/releases/tag/0.6.0)
 2023-11-23|First working release
