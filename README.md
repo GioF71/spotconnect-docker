@@ -2,7 +2,7 @@
 
 A docker image for [SpotConnect](https://github.com/philippe44/SpotConnect).  
 This repository replaces the old [airplay](https://github.com/GioF71/spotconnect-airplay-docker) and [upnp](https://github.com/GioF71/spotconnect-upnp-docker) separate variants, which will not be updated.  
-The image includes version [0.6.1](https://github.com/philippe44/SpotConnect/releases/tag/0.6.1).  
+The image includes version [0.6.2](https://github.com/philippe44/SpotConnect/releases/tag/0.6.2).  
 
 ## References
 
@@ -37,7 +37,7 @@ PUID|Group used to run the application, defaults to `1000`
 PGID|Group used to run the application, defaults to `1000`
 PREFER_STATIC|Prefer `-static` version of the executable, defaults to `no`
 VORBIS_BITRATE|Set the vorbis bitrate to `320`, `160` or `96`, defaults to `320`
-SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to upnp
+SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to `upnp`
 CONFIG_FILE_PREFIX|Prefix for the config file, empty by default
 
 ## Run
@@ -94,6 +94,7 @@ services:
 
 DATE|DESCRIPTION
 :---|:---
+2023-12-05|Bump to version [0.6.2](https://github.com/philippe44/SpotConnect/releases/tag/0.6.2)
 2023-12-02|Bump to version [0.6.1](https://github.com/philippe44/SpotConnect/releases/tag/0.6.1)
 2023-11-28|Bump to version [0.6.0](https://github.com/philippe44/SpotConnect/releases/tag/0.6.0)
 2023-11-23|First working release
