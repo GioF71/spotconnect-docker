@@ -31,7 +31,7 @@ FROM scratch
 COPY --from=BASE / /
 
 LABEL maintainer="GioF71"
-LABEL source="https://github.com/GioF71/spotconnect-upnp-docker"
+LABEL source="https://github.com/GioF71/spotconnect-docker"
 
 ENV PUID ""
 ENV PGID ""
