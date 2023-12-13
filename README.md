@@ -38,6 +38,7 @@ PGID|Group used to run the application, defaults to `1000`
 PREFER_STATIC|Prefer `-static` version of the executable, defaults to `no`
 VORBIS_BITRATE|Set the vorbis bitrate to `320`, `160` or `96`, defaults to `320`
 SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to `upnp`
+APPLETV_PAIRING_MODE|Runs in Apple TV Pairing mode, see issue [#1](https://github.com/GioF71/spotconnect-docker/issues/1)
 CONFIG_FILE_PREFIX|Prefix for the config file, empty by default
 
 ## Run
@@ -94,6 +95,7 @@ services:
 
 DATE|DESCRIPTION
 :---|:---
+2023-12-13|Support AppleTv Pairing mode (see [#1](https://github.com/GioF71/spotconnect-docker/issues/1))
 2023-12-13|Bump to version [0.8.0](https://github.com/philippe44/SpotConnect/releases/tag/0.8.0)
 2023-12-07|Bump to version [0.7.0](https://github.com/philippe44/SpotConnect/releases/tag/0.7.0)
 2023-12-05|Bump to version [0.6.2](https://github.com/philippe44/SpotConnect/releases/tag/0.6.2)

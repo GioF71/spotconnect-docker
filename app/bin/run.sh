@@ -4,6 +4,8 @@
 # 1 invalid parameter
 # 2 invalid vorbis bitrate
 
+mkdir /app/conf -p
+
 DEFAULT_UID=1000
 DEFAULT_GID=1000
 
@@ -104,7 +106,11 @@ if [[ -n "${CONFIG_FILE_PREFIX}" ]]; then
     CONFIG_FILE_NAME="${CONFIG_FILE_PREFIX}-config.xml"
 fi
 
-mkdir /app/conf -p
-CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -I -j -k -Z"
+if [[ "${SPOTCONNECT_MODE}" == "raop" && ("${APPLETV_PAIRING_MODE^^}" == "YES" || "${APPLETV_PAIRING_MODE^^}" == "Y") ]]; then
+    CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -l"
+else
+    CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -I -j -k -Z"
+fi
+
 echo "Command Line: ["$CMD_LINE"]"
 su - $USER_NAME -c "$CMD_LINE"
