@@ -1,7 +1,7 @@
 ARG BASE_IMAGE
 FROM ${BASE_IMAGE:-debian:stable-slim} AS BASE
 
-ARG SPOTCONNECT_VERSION=0.8.3
+ARG SPOTCONNECT_VERSION=0.8.4
 
 RUN mkdir /app/bin -p
 COPY app/bin/install-pkg.sh /app/bin/
