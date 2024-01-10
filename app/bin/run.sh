@@ -106,6 +106,22 @@ if [[ -n "${CONFIG_FILE_PREFIX}" ]]; then
     CONFIG_FILE_NAME="${CONFIG_FILE_PREFIX}-config.xml"
 fi
 
+if [[ -n "${LOG_LEVEL_ALL}" ]]; then
+    CMD_LINE="$CMD_LINE -d all=${LOG_LEVEL_ALL}"
+fi
+
+if [[ -n "${LOG_LEVEL_MAIN}" ]]; then
+    CMD_LINE="$CMD_LINE -d main=${LOG_LEVEL_MAIN}"
+fi
+
+if [[ -n "${LOG_LEVEL_UTIL}" ]]; then
+    CMD_LINE="$CMD_LINE -d util=${LOG_LEVEL_UTIL}"
+fi
+
+if [[ -n "${LOG_LEVEL_UPNP}" ]]; then
+    CMD_LINE="$CMD_LINE -d upnp=${LOG_LEVEL_UPNP}"
+fi
+
 if [[ "${SPOTCONNECT_MODE}" == "raop" && ("${APPLETV_PAIRING_MODE^^}" == "YES" || "${APPLETV_PAIRING_MODE^^}" == "Y") ]]; then
     CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -l"
 else

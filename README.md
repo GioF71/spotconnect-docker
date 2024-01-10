@@ -40,6 +40,10 @@ VORBIS_BITRATE|Set the vorbis bitrate to `320`, `160` or `96`, defaults to `320`
 SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to `upnp`
 APPLETV_PAIRING_MODE|Runs in Apple TV Pairing mode, see issue [#1](https://github.com/GioF71/spotconnect-docker/issues/1)
 CONFIG_FILE_PREFIX|Prefix for the config file, empty by default
+LOG_LEVEL_ALL|Enables log of type `all` using the provided value
+LOG_LEVEL_MAIN|Enables log of type `main` using the provided value
+LOG_LEVEL_UTIL|Enables log of type `util` using the provided value
+LOG_LEVEL_UPNP|Enables log of type `upnp` using the provided value
 
 ## Run
 
@@ -97,6 +101,7 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
+2024-01-10|Add support for log levels
 2024-01-09|Bump to version [0.8.6](https://github.com/philippe44/SpotConnect/releases/tag/0.8.6)
 2023-12-27|Bump to version [0.8.5](https://github.com/philippe44/SpotConnect/releases/tag/0.8.5)
 2023-12-26|Bump to version [0.8.4](https://github.com/philippe44/SpotConnect/releases/tag/0.8.4)
