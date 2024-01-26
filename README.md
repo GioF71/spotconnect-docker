@@ -102,7 +102,8 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
-2024-01-25|Bump to version [0.9.1](https://github.com/philippe44/SpotConnect/releases/tag/0.9.1)
+2024-01-26|Add support for log level of type `raop`
+2024-01-26|Bump to version [0.9.1](https://github.com/philippe44/SpotConnect/releases/tag/0.9.1)
 2024-01-15|Bump to version [0.9.0](https://github.com/philippe44/SpotConnect/releases/tag/0.9.0)
 2024-01-10|Add support for log levels
 2024-01-09|Bump to version [0.8.6](https://github.com/philippe44/SpotConnect/releases/tag/0.8.6)
