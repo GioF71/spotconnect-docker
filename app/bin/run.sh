@@ -122,6 +122,10 @@ if [[ -n "${LOG_LEVEL_UPNP}" ]]; then
     CMD_LINE="$CMD_LINE -d upnp=${LOG_LEVEL_UPNP}"
 fi
 
+if [[ -n "${LOG_LEVEL_RAOP}" ]]; then
+    CMD_LINE="$CMD_LINE -d raop=${LOG_LEVEL_RAOP}"
+fi
+
 if [[ "${SPOTCONNECT_MODE}" == "raop" && ("${APPLETV_PAIRING_MODE^^}" == "YES" || "${APPLETV_PAIRING_MODE^^}" == "Y") ]]; then
     CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -l"
 else

@@ -44,6 +44,7 @@ LOG_LEVEL_ALL|Enables log of type `all` using the provided value
 LOG_LEVEL_MAIN|Enables log of type `main` using the provided value
 LOG_LEVEL_UTIL|Enables log of type `util` using the provided value
 LOG_LEVEL_UPNP|Enables log of type `upnp` using the provided value
+LOG_LEVEL_RAOP|Enables log of type `raop` using the provided value
 
 ## Run
 
