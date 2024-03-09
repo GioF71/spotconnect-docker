@@ -45,6 +45,9 @@ LOG_LEVEL_MAIN|Enables log of type `main` using the provided value
 LOG_LEVEL_UTIL|Enables log of type `util` using the provided value
 LOG_LEVEL_UPNP|Enables log of type `upnp` using the provided value
 LOG_LEVEL_RAOP|Enables log of type `raop` using the provided value
+ENABLE_AUTO_NETWORK_IFACE|Allows to automatically set NETWORK_IFACE, defaults to `yes`, but this does not override an explicitly set `NETWORK_IFACE` variable anyway
+NETWORK_IFACE|Sets the network interface
+AUTO_NETWORK_IFACE_URL|Used for selecting iface, defaults to `1.1.1.1`
 
 ## Run
 
