@@ -132,5 +132,28 @@ else
     CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -I -j -k -Z"
 fi
 
+echo "NETWORK_IFACE=${NETWORK_IFACE}"
+upnp_iface="${NETWORK_IFACE}"
+if [[ -z "${upnp_iface}" ]]; then
+    echo "ENABLE_AUTO_NETWORK_IFACE=[${ENABLE_AUTO_NETWORK_IFACE}]"
+    if [[ -z "${ENABLE_AUTO_NETWORK_IFACE}" ]] || [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" == "YES" ]] || [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" == "Y" ]]; then
+        echo "Automatically setting upnp_iface ..."
+        auto_upnpiface_url="${AUTO_NETWORK_IFACE_URL}"
+        if [[ -z "${auto_upnpiface_url}" ]]; then
+            auto_upnpiface_url=1.1.1.1
+        fi
+        upnp_iface=$(ip route get $auto_upnpiface_url | grep -oP 'dev\s+\K[^ ]+')
+        #select_ip=$(ifconfig $iface | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+        echo "Automatically setting upnp_iface [Done]"
+        CMD_LINE="$CMD_LINE -b ${upnp_iface}"
+    elif [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" != "NO" ]] && [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" != "N" ]]; then
+        echo "Invalid ENABLE_AUTO_NETWORK_IFACE=[${ENABLE_AUTO_NETWORK_IFACE}]"
+        exit 1
+    fi
+else
+    # use provided iface
+    CMD_LINE="$CMD_LINE -b ${upnp_iface}"
+fi
+
 echo "Command Line: ["$CMD_LINE"]"
 su - $USER_NAME -c "$CMD_LINE"
