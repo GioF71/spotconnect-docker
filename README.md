@@ -105,6 +105,7 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
+2024-03-09|Auto select network interface (see [#3](https://github.com/GioF71/spotconnect-docker/issues/3))
 2024-03-06|Bump to version [0.9.2](https://github.com/philippe44/SpotConnect/releases/tag/0.9.2)
 2024-01-26|Add support for log level of type `raop`
 2024-01-26|Bump to version [0.9.1](https://github.com/philippe44/SpotConnect/releases/tag/0.9.1)
