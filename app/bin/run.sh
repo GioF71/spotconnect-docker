@@ -132,27 +132,31 @@ else
     CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -I -j -k -Z"
 fi
 
-echo "NETWORK_IFACE=${NETWORK_IFACE}"
-upnp_iface="${NETWORK_IFACE}"
-if [[ -z "${upnp_iface}" ]]; then
-    echo "ENABLE_AUTO_NETWORK_IFACE=[${ENABLE_AUTO_NETWORK_IFACE}]"
-    if [[ -z "${ENABLE_AUTO_NETWORK_IFACE}" ]] || [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" == "YES" ]] || [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" == "Y" ]]; then
-        echo "Automatically setting upnp_iface ..."
-        auto_upnpiface_url="${AUTO_NETWORK_IFACE_URL}"
-        if [[ -z "${auto_upnpiface_url}" ]]; then
-            auto_upnpiface_url=1.1.1.1
+echo "NETWORK_SELECT=${NETWORK_SELECT}"
+select_network="${NETWORK_SELECT}"
+if [[ -z "${select_network}" ]]; then
+    echo "ENABLE_AUTO_NETWORK=[${ENABLE_AUTO_NETWORK}]"
+    if [[ -z "${ENABLE_AUTO_NETWORK}" ]] || [[ "${ENABLE_AUTO_NETWORK^^}" == "YES" ]] || [[ "${ENABLE_AUTO_NETWORK^^}" == "Y" ]]; then
+        echo "Automatically setting network ..."
+        auto_network_url="${AUTO_NETWORK_URL}"
+        if [[ -z "${auto_network_url}" ]]; then
+            auto_network_url=1.1.1.1
         fi
-        upnp_iface=$(ip route get $auto_upnpiface_url | grep -oP 'dev\s+\K[^ ]+')
-        #select_ip=$(ifconfig $iface | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
-        echo "Automatically setting upnp_iface [Done]"
-        CMD_LINE="$CMD_LINE -b ${upnp_iface}"
-    elif [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" != "NO" ]] && [[ "${ENABLE_AUTO_NETWORK_IFACE^^}" != "N" ]]; then
-        echo "Invalid ENABLE_AUTO_NETWORK_IFACE=[${ENABLE_AUTO_NETWORK_IFACE}]"
+        select_network=$(ip route get $auto_network_url | grep -oP 'dev\s+\K[^ ]+')
+        select_ip=$(ifconfig $select_network | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+        chosen_network_argument="${select_network}"
+        if [[ -z "${NETWORK_USE_IP}" ]] || [[ "${NETWORK_USE_IP^^}" == "YES" ]] || [[ "${NETWORK_USE_IP^^}" == "Y" ]]; then
+            chosen_network_argument="${select_ip}"
+        fi
+        echo "Automatically setting network [Done]"
+        CMD_LINE="$CMD_LINE -b ${chosen_network_argument}"
+    elif [[ "${ENABLE_AUTO_NETWORK^^}" != "NO" ]] && [[ "${ENABLE_AUTO_NETWORK^^}" != "N" ]]; then
+        echo "Invalid ENABLE_AUTO_NETWORK=[${ENABLE_AUTO_NETWORK}]"
         exit 1
     fi
 else
     # use provided iface
-    CMD_LINE="$CMD_LINE -b ${upnp_iface}"
+    CMD_LINE="$CMD_LINE -b ${select_network}"
 fi
 
 echo "Command Line: ["$CMD_LINE"]"

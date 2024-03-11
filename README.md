@@ -45,9 +45,10 @@ LOG_LEVEL_MAIN|Enables log of type `main` using the provided value
 LOG_LEVEL_UTIL|Enables log of type `util` using the provided value
 LOG_LEVEL_UPNP|Enables log of type `upnp` using the provided value
 LOG_LEVEL_RAOP|Enables log of type `raop` using the provided value
-ENABLE_AUTO_NETWORK_IFACE|Allows to automatically set NETWORK_IFACE, defaults to `yes`, but this does not override an explicitly set `NETWORK_IFACE` variable anyway
-NETWORK_IFACE|Sets the network interface
-AUTO_NETWORK_IFACE_URL|Used for selecting iface, defaults to `1.1.1.1`
+ENABLE_AUTO_NETWORK|Allows to automatically set NETWORK_SELECT, defaults to `yes`, but this does not override an explicitly set `NETWORK_SELECT` variable anyway
+NETWORK_SELECT|Sets the network interface or ip and optionally port
+AUTO_NETWORK_URL|Used for selecting the network to use, defaults to `1.1.1.1`
+NETWORK_USE_IP|Use ip instead of network card for `-b`, defaults to `yes`
 
 ## Run
 
@@ -105,6 +106,7 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
+2024-03-11|Prefer ip over iface for the select network interface
 2024-03-09|Auto select network interface (see [#3](https://github.com/GioF71/spotconnect-docker/issues/3))
 2024-03-06|Bump to version [0.9.2](https://github.com/philippe44/SpotConnect/releases/tag/0.9.2)
 2024-01-26|Add support for log level of type `raop`

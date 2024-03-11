@@ -24,14 +24,16 @@ RUN chmod u+x /app/bin/cleanup.sh
 RUN /app/bin/cleanup.sh
 RUN rm /app/bin/cleanup.sh
 
-COPY app/bin/run.sh /app/bin
-RUN chmod 755 /app/bin/run.sh
-
 FROM scratch
 COPY --from=BASE / /
 
 LABEL maintainer="GioF71"
 LABEL source="https://github.com/GioF71/spotconnect-docker"
+
+RUN mkdir -p /app/bin
+
+COPY app/bin/run.sh /app/bin
+RUN chmod 755 /app/bin/run.sh
 
 ENV PUID ""
 ENV PGID ""
@@ -46,9 +48,10 @@ ENV LOG_LEVEL_UTIL ""
 ENV LOG_LEVEL_UPNP ""
 ENV LOG_LEVEL_RAOP ""
 
-ENV AUTO_NETWORK_IFACE_URL ""
-ENV ENABLE_AUTO_NETWORK_IFACE ""
-ENV NETWORK_IFACE ""
+ENV AUTO_NETWORK_URL ""
+ENV ENABLE_AUTO_NETWORK ""
+ENV NETWORK_SELECT ""
+ENV NETWORK_USE_IP ""
 
 VOLUME /config
 
