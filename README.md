@@ -68,7 +68,7 @@ So the variable `UPNP_HTTP_CONTENT_LENGTH_MODE` can be set accordingly.
 From the application's own help text:
 
 ```text
--A 0|1|2  HTTP caching mode (0=memory, 1=memory but claim it's infinite(*), 2=on disk)
+-A 0|1|2 HTTP caching mode (0=memory, 1=memory but claim it's infinite(*), 2=on disk)
 ```
 
 So the variable `UPNP_HTTP_CACHING_MODE` can be set accordingly.
@@ -90,7 +90,7 @@ So possible values include but are not limited to the following list: `flc`, `fl
 From the application's own help text:
 
 ```text
--c <alac|pcm>       audio format send to player (alac)
+-c <alac|pcm> audio format send to player (alac)
 ```
 
 So possible values are `alac` and `pcm`.  
