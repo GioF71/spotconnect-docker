@@ -94,6 +94,29 @@ if [[ -z "${VORBIS_BITRATE}" ]]; then
     VORBIS_BITRATE=320
 fi
 
+if [[ -n "${UPNP_HTTP_CONTENT_LENGTH_MODE}" ]]; then
+    if [[ "${SPOTCONNECT_MODE^^}" == "UPNP" ]]; then
+        echo "Using UPNP_HTTP_CONTENT_LENGTH_MODE=[${UPNP_HTTP_CONTENT_LENGTH_MODE}]"
+        CMD_LINE="$CMD_LINE -g ${UPNP_HTTP_CONTENT_LENGTH_MODE}"
+    else
+        echo "UPNP_HTTP_CONTENT_LENGTH_MODE=[${UPNP_HTTP_CONTENT_LENGTH_MODE}] but SPOTCONNECT_MODE=[${SPOTCONNECT_MODE}], ignoring."
+    fi
+fi
+
+if [[ -n "${UPNP_HTTP_CACHING_MODE}" ]]; then
+    if [[ "${SPOTCONNECT_MODE^^}" == "UPNP" ]]; then
+        echo "Using UPNP_HTTP_CACHING_MODE=[${UPNP_HTTP_CACHING_MODE}]"
+        CMD_LINE="$CMD_LINE -A ${UPNP_HTTP_CACHING_MODE}"
+    else
+        echo "UPNP_HTTP_CACHING_MODE=[${UPNP_HTTP_CACHING_MODE}] but SPOTCONNECT_MODE=[${SPOTCONNECT_MODE}], ignoring."
+    fi
+fi
+
+if [[ -n "${OUTPUT_CODEC}" ]]; then
+    echo "Using OUTPUT_CODEC=[${OUTPUT_CODEC}]"
+    CMD_LINE="$CMD_LINE -c ${OUTPUT_CODEC}"
+fi
+
 if [[ "${VORBIS_BITRATE}" == "320" || "${VORBIS_BITRATE}" == "160" || "${VORBIS_BITRATE}" == "96" ]]; then
     CMD_LINE="$CMD_LINE -r ${VORBIS_BITRATE}"
 else

@@ -22,7 +22,7 @@ Docker images|[Docker Hub](https://hub.docker.com/r/giof71/spotconnect)
 
 Simply build using the following:
 
-```
+```text
 docker build . -t giof71/spotconnect:latest
 ```
 
@@ -38,17 +38,66 @@ PGID|Group used to run the application, defaults to `1000`
 PREFER_STATIC|Prefer `-static` version of the executable, defaults to `no`
 VORBIS_BITRATE|Set the vorbis bitrate to `320`, `160` or `96`, defaults to `320`
 SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to `upnp`
+OUTPUT_CODEC|Codec for the UPnP version, see [here](https://github.com/philippe44/SpotConnect?tab=readme-ov-file#upnp), possible values [here](#output-codec-values)
+UPNP_HTTP_CONTENT_LENGTH_MODE|For UPnP mode only, see [here](https://github.com/philippe44/SpotConnect#http-content-length-and-transfer-modes), possible values [here](#http-content-length-modes-upnp-only)
+UPNP_HTTP_CACHING_MODE|Caching mode for UPnP mode only
 APPLETV_PAIRING_MODE|Runs in Apple TV Pairing mode, see issue [#1](https://github.com/GioF71/spotconnect-docker/issues/1)
 CONFIG_FILE_PREFIX|Prefix for the config file, empty by default
 LOG_LEVEL_ALL|Enables log of type `all` using the provided value
-LOG_LEVEL_MAIN|Enables log of type `main` using the provided value
-LOG_LEVEL_UTIL|Enables log of type `util` using the provided value
-LOG_LEVEL_UPNP|Enables log of type `upnp` using the provided value
-LOG_LEVEL_RAOP|Enables log of type `raop` using the provided value
+LOG_LEVEL_MAIN|Enables log of type `main` using the provided value, possible values [here](#log-level-values)
+LOG_LEVEL_UTIL|Enables log of type `util` using the provided value, possible values [here](#log-level-values)
+LOG_LEVEL_UPNP|Enables log of type `upnp` using the provided value, possible values [here](#log-level-values)
+LOG_LEVEL_RAOP|Enables log of type `raop` using the provided value, possible values [here](#log-level-values)
 ENABLE_AUTO_NETWORK|Allows to automatically set NETWORK_SELECT, defaults to `yes`, but this does not override an explicitly set `NETWORK_SELECT` variable anyway
 NETWORK_SELECT|Sets the network interface or ip and optionally port
 AUTO_NETWORK_URL|Used for selecting the network to use, defaults to `1.1.1.1`
 NETWORK_USE_IP|Use ip instead of network card for `-b`, defaults to `yes`
+
+### HTTP Content length modes (UPnP only)
+
+From the application's own help text:
+
+```text
+-g -3|-2|-1|0|<n> HTTP content-length mode (-3:chunked(*), -2:if known, -1:none, 0:fixed, <n> your value)
+```
+
+So the variable `UPNP_HTTP_CONTENT_LENGTH_MODE` can be set accordingly.
+
+### HTTP Caching modes (UPnP only)
+
+From the application's own help text:
+
+```text
+-A 0|1|2  HTTP caching mode (0=memory, 1=memory but claim it's infinite(*), 2=on disk)
+```
+
+So the variable `UPNP_HTTP_CACHING_MODE` can be set accordingly.
+
+### Output Codec values
+
+#### Output Codec values for UPnP
+
+From the application's own help text:
+
+```text
+-c mp3[:<rate>]|opus[:<rate>]|vorbis[:rate]|flc[:0..9]|wav|pcm audio format send to player (flac)
+```
+
+So possible values include but are not limited to the following list: `flc`, `flc:5`, `wav`, `mp3`, `mp3:320`, etc.  
+
+#### Output Codec values for AirPlay
+
+From the application's own help text:
+
+```text
+-c <alac|pcm>       audio format send to player (alac)
+```
+
+So possible values are `alac` and `pcm`.  
+
+### Log Level Values
+
+Please note that the possible values for the variables starting with `LOG_LEVEL_` are the following: `error`, `warn`, `info`, `debug`, `sdebug`.
 
 ## Run
 
@@ -56,7 +105,7 @@ Simple docker-compose files below.
 
 ### UPnP Mode
 
-```
+```text
 ---
 version: "3"
 
@@ -79,7 +128,7 @@ services:
 
 ### AirPlay Mode
 
-```
+```text
 ---
 version: "3"
 
@@ -106,6 +155,9 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
+2024-09-10|Add support for http caching mode (`-A`)
+2024-09-10|Add support for http content length mode (`-g`)
+2024-09-10|Add support for output codec (`-c`)
 2024-03-11|Prefer ip over iface for the select network interface
 2024-03-09|Auto select network interface (see [#3](https://github.com/GioF71/spotconnect-docker/issues/3))
 2024-03-06|Bump to version [0.9.2](https://github.com/philippe44/SpotConnect/releases/tag/0.9.2)
