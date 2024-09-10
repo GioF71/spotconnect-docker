@@ -40,7 +40,7 @@ VORBIS_BITRATE|Set the vorbis bitrate to `320`, `160` or `96`, defaults to `320`
 SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to `upnp`
 OUTPUT_CODEC|Codec for the UPnP version, see [here](https://github.com/philippe44/SpotConnect?tab=readme-ov-file#upnp), possible values [here](#output-codec-values)
 UPNP_HTTP_CONTENT_LENGTH_MODE|For UPnP mode only, see [here](https://github.com/philippe44/SpotConnect#http-content-length-and-transfer-modes), possible values [here](#http-content-length-modes-upnp-only)
-UPNP_HTTP_CACHING_MODE|Caching mode for UPnP mode only
+UPNP_HTTP_CACHING_MODE|Caching mode for UPnP mode only, possible values [here](#http-caching-modes-upnp-only) 
 APPLETV_PAIRING_MODE|Runs in Apple TV Pairing mode, see issue [#1](https://github.com/GioF71/spotconnect-docker/issues/1)
 CONFIG_FILE_PREFIX|Prefix for the config file, empty by default
 LOG_LEVEL_ALL|Enables log of type `all` using the provided value
