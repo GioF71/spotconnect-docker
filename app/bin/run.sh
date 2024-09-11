@@ -152,7 +152,19 @@ fi
 if [[ "${SPOTCONNECT_MODE}" == "raop" && ("${APPLETV_PAIRING_MODE^^}" == "YES" || "${APPLETV_PAIRING_MODE^^}" == "Y") ]]; then
     CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -l"
 else
-    CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -I -j -k -Z"
+    CMD_LINE="$CMD_LINE -x /config/$CONFIG_FILE_NAME -I -k -Z"
+fi
+
+if [[ -n "${STORE_CRED_XML}" ]]; then
+    echo "STORE_CRED_XML=[${STORE_CRED_XML}]"
+    if [[ "${STORE_CRED_XML^^}" == "YES" ]] || [[ "${STORE_CRED_XML^^}" == "Y" ]]; then
+        CMD_LINE="$CMD_LINE -j"
+    elif [[ "${STORE_CRED_XML^^}" != "NO" ]] && [[ "${STORE_CRED_XML^^}" != "N" ]]; then
+        echo "Invalid STORE_CRED_XML=[${STORE_CRED_XML}]!"
+        exit 1
+    fi
+else
+    echo "STORE_CRED_XML not set, disabled by default"
 fi
 
 echo "NETWORK_SELECT=${NETWORK_SELECT}"

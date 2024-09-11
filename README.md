@@ -37,6 +37,7 @@ PUID|Group used to run the application, defaults to `1000`
 PGID|Group used to run the application, defaults to `1000`
 PREFER_STATIC|Prefer `-static` version of the executable, defaults to `no`
 VORBIS_BITRATE|Set the vorbis bitrate to `320`, `160` or `96`, defaults to `320`
+STORE_CRED_XML|Set to `yes` to store credentials in the configuration file (`-j`), defaults to `no`
 SPOTCONNECT_MODE|SpotConnect mode: `upnp` or `raop` (for AirPlay), defaults to `upnp`
 OUTPUT_CODEC|Codec for the UPnP version, see [here](https://github.com/philippe44/SpotConnect?tab=readme-ov-file#upnp), possible values [here](#output-codec-values)
 UPNP_HTTP_CONTENT_LENGTH_MODE|For UPnP mode only, see [here](https://github.com/philippe44/SpotConnect#http-content-length-and-transfer-modes), possible values [here](#http-content-length-modes-upnp-only)
@@ -155,6 +156,7 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
+2024-09-11|Do not save credentials to xml file (`-j`) by default
 2024-09-10|Add support for http caching mode (`-A`)
 2024-09-10|Add support for http content length mode (`-g`)
 2024-09-10|Add support for output codec (`-c`)
