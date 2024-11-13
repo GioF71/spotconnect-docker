@@ -9,7 +9,6 @@ The latest images include version [0.9.2](https://github.com/philippe44/SpotConn
 This is based on [this project](https://github.com/philippe44/SpotConnect) by [philippe44](https://github.com/philippe44).  
 In UPnP mode (`SPOTCONNECT_MODE=upnp`), it will let you use your upnp renderers (including those created with [upmpdcli](https://github.com/GioF71/upmpdcli-docker) and [mpd](https://github.com/giof71/mpd-alsa-docker)) as Spotify Connect devices.  
 In AirPlay mode (`SPOTCONNECT_MODE=raop`), it will let you use your AirPlay renderers as Spotify Connect devices, including those that you have created using [Shairport Sync](https://github.com/mikebrady/shairport-sync).  
-A container image for the AirPlay version is available [here](https://github.com/GioF71/spotconnect-airplay-docker).  
 
 ## Links
 
