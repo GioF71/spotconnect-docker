@@ -99,6 +99,39 @@ So possible values are `alac` and `pcm`.
 
 Please note that the possible values for the variables starting with `LOG_LEVEL_` are the following: `error`, `warn`, `info`, `debug`, `sdebug`.
 
+## Generate a configuration file
+
+You can generate a configuration file for the upnp version using the following command:
+
+```text
+docker run -it \
+  --user 1000:1000 \
+  --network host \
+  --rm \
+  -v ${PWD}:/config \
+  --entrypoint /app/bin/spotupnp-linux \
+  giof71/spotconnect \
+  -i /config/spotconnect-upnp-new.xml
+```
+
+The option `--user 1000:1000` is needed if the current directory is owned by your user (use the correct uid/gid if they are not 1000 and 1000 respectively).  
+This will result in a new file named `spotconnect-upnp-new.xml` in you current directory.  
+Similarly the command for the airplay version is like the following:
+
+```text
+docker run -it \
+  --user 1000:1000 \
+  --network host \
+  --rm \
+  -v ${PWD}:/config \
+  --entrypoint /app/bin/spotraop-linux \
+  giof71/spotconnect \
+  -i /config/spotconnect-airplay-new.xml
+```
+
+The resulting file will be of course named `spotconnect-airplay-new.xml`.  
+You can then modify your configuration files to your needs and use them in the your compose file(s) by putting them in the `/config` volume.
+
 ## Run
 
 Simple docker-compose files below.  
