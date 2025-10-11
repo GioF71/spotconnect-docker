@@ -188,6 +188,7 @@ The changelog of the upstream project is available [here](https://github.com/phi
 
 DATE|DESCRIPTION
 :---|:---
+2025-10-11|Build for arm/v5 instead of arm/v6
 2025-10-11|Bump to version [0.10.1](https://github.com/philippe44/SpotConnect/releases/tag/0.10.1)
 2024-09-11|Do not save credentials to xml file (`-j`) by default
 2024-09-10|Add support for http caching mode (`-A`)
