@@ -20,7 +20,7 @@ prefix=("spotupnp" "spotraop")
 
 declare -A bin_file_name
 bin_file_name[$arch_amd64]="linux-x86_64"
-bin_file_name[$arch_arm_v6]="linux-armv6"
+bin_file_name[$arch_arm_v6]="linux-armv5"
 bin_file_name[$arch_arm_v7]="linux-arm"
 bin_file_name[$arch_arm_v8]="linux-aarch64"
 
