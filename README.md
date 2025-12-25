@@ -2,7 +2,7 @@
 
 A docker image for [SpotConnect](https://github.com/philippe44/SpotConnect).  
 This repository replaces the previous [airplay](https://github.com/GioF71/spotconnect-airplay-docker) and [upnp](https://github.com/GioF71/spotconnect-upnp-docker) separate variants of the project, which will be no longer updated.  
-The latest images include version [0.10.1](https://github.com/philippe44/SpotConnect/releases/tag/0.10.1).  
+The latest images include version [0.20.1](https://github.com/philippe44/SpotConnect/releases/tag/0.20.1).  
 
 ## References
 
@@ -184,10 +184,11 @@ services:
 
 ## Changelog
 
-The changelog of the upstream project is available [here](https://github.com/philippe44/SpotConnect/blob/master/CHANGELOG).  
+The changelog of the upstream project is available [here, on the upstream repo](https://github.com/philippe44/SpotConnect/blob/master/CHANGELOG).  
 
 DATE|DESCRIPTION
 :---|:---
+2025-12-25|Bump to version [0.20.1](https://github.com/philippe44/SpotConnect/releases/tag/0.20.1)
 2025-10-11|Build for arm/v5 instead of arm/v6
 2025-10-11|Bump to version [0.10.1](https://github.com/philippe44/SpotConnect/releases/tag/0.10.1)
 2024-09-11|Do not save credentials to xml file (`-j`) by default
